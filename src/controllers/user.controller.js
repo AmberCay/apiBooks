@@ -25,4 +25,17 @@ function postRegister(req, response) {
     })
 }
 
-module.exports = {getStart, postRegister}
+function postLogin(req, response) {
+    let params = [req.body.email, req.body.password]
+    let sql = "SELECT * FROM appbooks.user where email = ? And password = ?;"
+    connection.query(sql, params, (err, res) => {
+        if (res.length == 0) {
+            console.log('no user');
+        }
+        else {
+            response.send(res)
+        }
+    })
+}
+
+module.exports = {getStart, postRegister, postLogin}

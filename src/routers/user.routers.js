@@ -6,4 +6,6 @@ router.get("/", userCTRL.getStart)
 
 router.post("/register", userCTRL.postRegister)
 
+router.post("/login", userCTRL.postLogin)
+
 module.exports = router
