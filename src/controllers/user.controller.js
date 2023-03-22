@@ -17,13 +17,13 @@ function postRegister(req, response) {
         else {
             console.log(res);
             if (res.insertId) {
-                answer = {error: false, code: 200, message: String(res.insertId), data: [null]}
-                response.send(String(res.insertId));
+                answer = {error: false, code: 200, message: String(res.insertId), data: [null]};
             }
             else {
-                response.send("-1");
+                answer = {error: true, code: 200, message: "0", data: [null]};
             }
         }
+        response.send(answer)
     })
 }
 
